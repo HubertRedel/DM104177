@@ -1,0 +1,42 @@
+Kod:
+
+import numpy as np
+import seaborn as sns
+import matplotlib.pyplot as plt
+mu, sigma = 4, 2
+s = np.random.normal(mu, sigma, 100)
+print("Zbiór:")
+print(s)
+sns.distplot(s)
+print("Histogram:")
+plt.show()
+from scipy.stats import normaltest
+stats, p = normaltest(s)
+print("Test D’Agostino–Pearson:")
+print("p = ", p)
+if p > 0.05:
+    print ("Rozk³ad wygl¹da na normalny")
+else:
+    print ("Rozk³ad nie wygl¹da na normalny")
+from scipy.stats import shapiro
+stats, p = shapiro(s)
+print("Test Shapiro-Wilk:")
+print("p = ", p)
+if p > 0.05:
+    print ("Rozk³ad wygl¹da na normalny")
+else:
+    print ("Rozk³ad nie wygl¹da na normalny")
+
+Zrealizowano w COLAB.
+
+Odpowiedzi na pytania:
+
+Pytanie 1:
+Liczby pochodz¹ce z generatora programowego zwane s¹ liczbami pseudolosowymi, poniewa¿ 
+faktycznie nie s¹ dzie³em przypadku, lecz wynikiem obliczeñ matematycznych przeprowadzanych na ziarnie wygenerowanym przez program.
+
+Pytanie 2:
+Weryfikacja poprawnoœci wygenerowanych danych mo¿e zostaæ przeprowadzona poprzez wykonanie testów odpowiednich dla zadanego rozk³adu.
+
+Pytanie 3:
+¯eby uznaæ wynik testów za poprawny, trzeba najpierw zweryfikowaæ poprawnoœæ wygenerowanego zbioru. Dodatkowy stopieñ weryfikacji to dobra praktyka.
