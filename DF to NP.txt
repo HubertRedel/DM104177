@@ -1,0 +1,43 @@
+import pandas as pd
+
+df = pd.DataFrame(
+	[[1, 2, 3],
+	[4, 5, 6],
+	[7, 8, 9],
+	[10, 11, 12]],
+	columns=['a', 'b', 'c'])
+
+print('DataFrame\n----------\n', df)
+
+arr = df.to_numpy()
+
+print('\nNumpy Array\n----------\n', arr)
+def mean():
+    y=0
+    x=len(arr)
+    z = len(arr[0])
+    srednia=0
+    for i in range(x):
+      for j in range(z):
+        y=y+arr[i][j]
+    srednia=y/(x*z)
+   
+    return srednia
+mean()
+srednia= mean()
+print("Srednia arytmetyczna to:",srednia)
+
+def var(): 
+    srednia= mean()
+    y=0
+    x=len(arr)
+    w = len(arr[0])
+    wariancja = 0
+    z = 0
+    p = 0
+    for i in range(x):
+      for j in range(w):
+        z= z+(arr[i][j]- srednia)*(arr[i][j]- srednia)
+    wariancja = z/(x*w)
+    print("Wariancja to:", wariancja)
+var()
