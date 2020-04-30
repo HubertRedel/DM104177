@@ -1,0 +1,23 @@
+import numpy as np 
+import pandas as pd
+from array import *
+from random import randint
+from numpy import*
+class Die(object):
+    """kość do gry"""
+    def __init__(self, num_sides = 6):
+        self.num_sides = num_sides
+    
+    def roll(self):
+        return randint(1,self.num_sides)
+
+die = Die()
+die2 = Die()
+
+lista = []
+for i in range(5):
+  results =[]
+  results.append(die.roll())
+  results.append(die.roll())
+  lista.append(results)
+lista
